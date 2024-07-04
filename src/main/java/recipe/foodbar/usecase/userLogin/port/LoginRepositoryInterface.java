@@ -6,47 +6,42 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 /**
- * LoginRepositoryInterface to be implemented by the repository needed
+ * UserLoginRepositoryInterface to be implemented by the database for logged in users
  */
 public interface LoginRepositoryInterface {
 
     /**
-     * Method to add a user to the repository
-     *
-     * @param user User object
-     * @param cookie String representing the cookie
+     * Method for adding a logged-in user to the repository
+     * @param user given user object
+     * @param cookie given String cookie
      */
     void add(final User user, final String cookie);
 
-
     /**
-     * Method to find a user by the given cookie
-     *
-     * @param cookie String representation of the cookie
-     * @return result of the search as a boolean
+     * Method for finding a logged in user by a cookie
+     * @param cookie given String cookie
+     * @return user object if found.
      */
+
     Optional<User> findByCookie(final String cookie);
 
-
     /**
-     * Find a list of all logged in users
-     * @return ArrayList containing user objects
+     * Method for finding all logged-in users
+     * @return Array list of all users in the repository
      */
     ArrayList<User> findAllActive();
 
-
     /**
-     * Find a user by their username
-     *
+     * Method for finding a user by their username in the repository
      * @param username String representation of the username
-     * @return return user object if found, empty user object if not found
+     * @return user object if found
      */
+
     Optional<User> findByUsername(String username);
 
-
     /**
-     * Remove the user corresponding to the cookie from the database
-     * @param cookie String representation of the cookie
+     * Method for removing a user from the repository by their given cookie
+     * @param cookie String representing cookie
      */
     void remove(String cookie);
 }

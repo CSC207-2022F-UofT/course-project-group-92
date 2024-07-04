@@ -1,7 +1,7 @@
 package recipe.foodbar.usecase.userLogout.port;
 
 /**
- * Inteface for the presenter to implement
+ * UserLogoutOutputBoundary to be implemented by UserLogoutPresenter
  */
 public interface UserLogoutOutputBoundary {
 

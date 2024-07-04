@@ -1,5 +1,6 @@
 package recipe.foodbar.controller.user.logout;
 
+import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.userLogout.UserLogoutInput;
 import recipe.foodbar.usecase.userLogout.port.UserLogoutInputBoundary;
 
@@ -23,9 +24,9 @@ public class UserLogoutController {
      * @param cookie String representation of the cookie
      * @return the completed UserLoginInput object
      */
-    public UserLogoutInput create(String cookie) {
+    public String logout(String cookie) {
         UserLogoutInput UserLogout = new UserLogoutInput(cookie);
 
-        return UserLogout;
+        return data.logout(UserLogout);
     }
 }

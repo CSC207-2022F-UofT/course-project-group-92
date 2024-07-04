@@ -57,4 +57,47 @@ public class User {
     public void removeRecipe(Recipe recipeToBeRemoved) {
         this.savedRecipes.remove(recipeToBeRemoved);
     }
+
+    /**
+     * add a user to this user's following list.
+     *
+     * @param toFollow the user object to be added to the list of following.
+     */
+    public void followUser(User toFollow){
+        this.following.add(toFollow);
+    }
+
+    /**
+     * remove a user from this user's following list.
+     *
+     * @param toUnfollow the user object to be removed from the list of following.
+     */
+    public void unfollowUser(User toUnfollow){
+        this.following.remove(toUnfollow);
+    }
+
+    /**
+     * return a list of recipes that this user created.
+     */
+    public ArrayList<Recipe> getRecipes(){
+        return this.savedRecipes;
+    }
+
+    /**
+     * add a user to this user's follower's list. (generally used when someone follows this user)
+     *
+     * @param toAdd the user object to be added to this user's followers list.
+     */
+    public void addFollower(User toAdd){
+        this.followers.add(toAdd);
+    }
+
+    /**
+     * remove a user from this user's following list. (generally used when someone unfollows this user)
+     *
+     * @param toRemove the user object to be removed from this user's followers list.
+     */
+    public void removeFollower(User toRemove){
+        this.followers.remove(toRemove);
+    }
 }

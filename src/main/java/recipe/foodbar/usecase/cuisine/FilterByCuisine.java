@@ -3,6 +3,7 @@ package recipe.foodbar.usecase.cuisine;
 import recipe.foodbar.entities.Recipe;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterData;
 import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterInputBoundary;
+import recipe.foodbar.usecase.recipe.manager.filter.CuisineFilterOutputBoundary;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 
 import java.util.ArrayList;
@@ -12,14 +13,16 @@ import java.util.ArrayList;
 public final class FilterByCuisine implements CuisineFilterInputBoundary {
 
     private final RecipeRepository repository;
+    private final CuisineFilterOutputBoundary output;
 
     /**
      * Constructor for FilterByCuisine
      *
      * @param repository Data access interface to allow interactions with the repository
      */
-    public FilterByCuisine(final RecipeRepository repository) {
+    public FilterByCuisine(final RecipeRepository repository, final CuisineFilterOutputBoundary output) {
         this.repository = repository;
+        this.output = output;
     }
 
     /**
@@ -30,6 +33,6 @@ public final class FilterByCuisine implements CuisineFilterInputBoundary {
      */
     @Override
     public ArrayList<Recipe> filterByCuisine(CuisineFilterData cuisineData) {
-        return repository.getByCuisine(cuisineData.getCuisine());
+        return output.presentFilteredRecipes(repository.getByCuisine(cuisineData.getCuisine()));
     }
 }

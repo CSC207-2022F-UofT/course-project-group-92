@@ -4,6 +4,8 @@ import lombok.*;
 
 import java.util.ArrayList;
 
+/*The Cuisine Entity Class*/
+
 @AllArgsConstructor
 @Builder
 @Data

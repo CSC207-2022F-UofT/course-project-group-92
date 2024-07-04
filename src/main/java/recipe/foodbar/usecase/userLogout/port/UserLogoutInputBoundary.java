@@ -2,9 +2,8 @@ package recipe.foodbar.usecase.userLogout.port;
 
 
 import recipe.foodbar.usecase.userLogout.UserLogoutInput;
-
 /**
- * Interface for the interactor to implement so controller can avoid breach of dependency rules
+ * UserLogoutInputBoundary to be implemented by UserLogoutPresenter
  */
 public interface UserLogoutInputBoundary {
 
@@ -14,5 +13,5 @@ public interface UserLogoutInputBoundary {
      * @param input the UserLogoutInput object to be passed in
      * @return to be implemented
      */
-    String logout(UserLogoutInput input);
+    public String logout(UserLogoutInput input);
 }

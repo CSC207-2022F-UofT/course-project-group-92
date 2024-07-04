@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_following" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_explore" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_notifications"-->
+<!--        android:icon="@drawable/ic_notifications_black_24dp"-->
+<!--        android:title="@string/title_explore" />-->
 
 </menu>

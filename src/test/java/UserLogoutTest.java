@@ -11,7 +11,7 @@ import recipe.foodbar.repository.mongoDB.repository.MongoUserRepository;
 import recipe.foodbar.repository.simpleDB.InMemoryCookieRepository;
 import recipe.foodbar.usecase.user.UserInputData;
 import recipe.foodbar.usecase.user.UserManager;
-import recipe.foodbar.usecase.commonport.IdGenerator;
+import recipe.foodbar.usecase.user.port.IdGenerator;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.userLogin.UserLogin;
 import recipe.foodbar.usecase.userLogin.UserLoginInput;
@@ -27,17 +27,32 @@ import static recipe.foodbar.repository.mongoDB.MongoDB.getMongoDB;
 
 public class UserLogoutTest {
 
+
+    /**
+     * AccountCreationMethod function that runs the creation of a user given parameters for tests
+     *
+     * @param username String representation of username
+     * @param password String representation of password
+     * @param passwordShadow String representation of passwordShadow
+     * @param email String representation of email
+     * @param repo given repository for user
+     * @param idGenerator given idGenerator for user
+     * @return created user object
+     */
     public void accountCreationMethod(String username, String password, String passwordShadow, String email,
                                       MongoUserRepository repo, IdGenerator idGenerator) {
 
         AccountPresenter accountPresenterTwo = new AccountPresenter();
         UserCreatorInputBoundary data = new UserManager(accountPresenterTwo, repo, idGenerator);
         AccountController accountController = new AccountController(data);
-        //UserInputData user = accountController.create(username, password, passwordShadow, email);
 
         accountController.create(username, password, passwordShadow, email);
     }
 
+
+    /**
+     * Test to see if user can successfully logout if logged in
+     */
     @Test
     public void userLogoutSuccess(){
         final IdGenerator idGenerator = new JugIdGenerator();
@@ -56,10 +71,10 @@ public class UserLogoutTest {
 
         //Logging in the user
         UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
-        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo, loginRepositoryInterface);
+        UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, repo,
+                loginRepositoryInterface, idGenerator);
         UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
-        UserLoginInput userLoginInput = userLoginController.login(username, password);
-        String cookie = userLoginController.data.login(userLoginInput);
+        String cookie = userLoginController.login(username, password);
 
 
         //Calling the userLogout use case
@@ -67,12 +82,14 @@ public class UserLogoutTest {
         UserLogoutInputBoundary userLogoutInputBoundary = new UserLogout(userLogoutOutputBoundary,
                 loginRepositoryInterface);
         UserLogoutController userLogoutController = new UserLogoutController(userLogoutInputBoundary);
-        UserLogoutInput userLogoutInput = userLogoutController.create(cookie);
-        String actual = userLogoutController.data.logout(userLogoutInput);
+        String actual = userLogoutController.logout(cookie);
         String expected = "User Successfully Logged Out";
         assert actual.equals(expected);
     }
 
+    /**
+     * Test to make sure user cannot log out if already logged out
+     */
     @Test
     public void userAlreadyLoggedOut(){
         final IdGenerator idGenerator = new JugIdGenerator();
@@ -96,8 +113,7 @@ public class UserLogoutTest {
         UserLogoutInputBoundary userLogoutInputBoundary = new UserLogout(userLogoutOutputBoundary,
                 loginRepositoryInterface);
         UserLogoutController userLogoutController = new UserLogoutController(userLogoutInputBoundary);
-        UserLogoutInput userLogoutInput = userLogoutController.create(cookie);
-        String actual = userLogoutController.data.logout(userLogoutInput);
+        String actual = userLogoutController.logout(cookie);
         String expected = "User Logout failed, User Already Logged Out";
         assert actual.equals(expected);
 
