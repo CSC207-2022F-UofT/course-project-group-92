@@ -1,4 +1,4 @@
-package recipe.foodbar.usecase.user;
+package recipe.foodbar.usecase.user.manager;
 
 import recipe.foodbar.entities.User;
 import recipe.foodbar.usecase.user.port.UserRepository;

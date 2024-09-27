@@ -18,7 +18,7 @@ public class Recipe {
     private User user;
     private float portionSize;
     private ArrayList<String> instructions;
-    private Cuisine cuisine;
+    private recipe.foodbar.entities.Cuisine cuisine;
     private ArrayList<String> dietaryRestrictions;
     private Date dateCreated;
     @Builder.Default

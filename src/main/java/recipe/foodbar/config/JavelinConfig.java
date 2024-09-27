@@ -4,12 +4,13 @@ import com.mongodb.client.MongoDatabase;
 import recipe.foodbar.controller.recipe.CreateRecipeController;
 import recipe.foodbar.controller.review.ReviewController;
 import recipe.foodbar.controller.user.AccountController;
-import recipe.foodbar.controller.user.AccountPresenter;
+
 import recipe.foodbar.controller.user.login.UserLoginController;
 import recipe.foodbar.controller.user.login.UserLoginPresenter;
 import recipe.foodbar.controller.user.logout.UserLogoutController;
 import recipe.foodbar.controller.user.logout.UserLogoutPresenter;
 import recipe.foodbar.id_generator.jug.JugIdGenerator;
+import recipe.foodbar.presenter.AccountPresenter;
 import recipe.foodbar.presenter.ReviewPresenter;
 import recipe.foodbar.repository.mongoDB.MongoDB;
 import recipe.foodbar.repository.mongoDB.repository.MongoRecipeRepository;
@@ -22,7 +23,8 @@ import recipe.foodbar.usecase.recipe.manager.CreateRecipePresenter;
 import recipe.foodbar.usecase.recipe.port.RecipeRepository;
 import recipe.foodbar.usecase.review.WriteReviewInteractor;
 import recipe.foodbar.usecase.review.port.ReviewOutputBoundary;
-import recipe.foodbar.usecase.user.UserManager;
+
+import recipe.foodbar.usecase.user.manager.UserManager;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 import recipe.foodbar.usecase.user.port.UserRepository;
 import recipe.foodbar.usecase.userLogin.UserLogin;
@@ -47,7 +49,7 @@ public class JavelinConfig {
     UserLoginOutputBoundary userLoginOutputBoundary = new UserLoginPresenter();
     UserLogoutOutputBoundary userLogoutOutputBoundary = new UserLogoutPresenter();
     UserCreatorInputBoundary data = new UserManager(accountPresenter, userRepository, idGenerator);
-    UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, userRepository, loggedInRepo);
+    UserLoginInputBoundary userLoginInputBoundary = new UserLogin(userLoginOutputBoundary, userRepository, loggedInRepo, idGenerator);
     AccountController accountController = new AccountController(data);
     UserLoginController userLoginController = new UserLoginController(userLoginInputBoundary);
     UserLogoutInputBoundary userLogoutInputBoundary = new UserLogout(userLogoutOutputBoundary, loggedInRepo);

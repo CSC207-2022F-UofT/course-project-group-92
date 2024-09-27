@@ -1,8 +1,10 @@
-package recipe.foodbar.usecase.recipe.manager.sort;
+package recipe.foodbar.usecase.recipe.manager.sort.comparators;
 
 import recipe.foodbar.entities.Recipe;
 
-public class CuisineComparator extends AbstractComparator {
+import java.util.Comparator;
+
+public class CuisineComparator implements Comparator<Recipe> {
 
     /**
      * Compares its two arguments for order.  Returns a negative integer,

@@ -6,7 +6,8 @@ import io.javalin.http.UnauthorizedResponse;
 import recipe.foodbar.controller.user.AccountController;
 import recipe.foodbar.controller.user.login.UserLoginController;
 import recipe.foodbar.controller.user.logout.UserLogoutController;
-import recipe.foodbar.usecase.user.UserInputData;
+
+import recipe.foodbar.usecase.user.ds.UserInputData;
 import recipe.foodbar.usecase.userLogin.UserLoginInput;
 import recipe.foodbar.usecase.userLogout.UserLogoutInput;
 

@@ -5,6 +5,7 @@ Class to check the validity of the information provided and return the results
 package recipe.foodbar.usecase.user;
 
 import recipe.foodbar.entities.User;
+import recipe.foodbar.usecase.user.ds.UserInputData;
 import recipe.foodbar.usecase.user.port.UserRepository;
 
 import java.util.List;

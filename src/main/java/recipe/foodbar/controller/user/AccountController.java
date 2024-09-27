@@ -1,6 +1,6 @@
 package recipe.foodbar.controller.user;
 
-import recipe.foodbar.usecase.user.UserInputData;
+import recipe.foodbar.usecase.user.ds.UserInputData;
 import recipe.foodbar.usecase.user.port.UserCreatorInputBoundary;
 
 /*
@@ -35,12 +35,6 @@ public class AccountController {
      * @param email          The String representation of the email
      * @return the completed UserInputData object
      */
-//    public UserInputData create(String username, String password, String passwordShadow, String email) {
-//        UserInputData userInput = new UserInputData(username, password,
-//                passwordShadow, email);
-//
-//        return userInput;
-//    }
     public String create(String username, String password, String passwordShadow, String email) {
         UserInputData userInput = new UserInputData(username, password,
                 passwordShadow, email);

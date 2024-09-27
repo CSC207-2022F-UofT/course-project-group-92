@@ -3,7 +3,7 @@ package recipe.foodbar.usecase.recipe.ds;
 /**
  * The output data for recipes.
  */
-public class RecipeResponseModel {
+public class RecipeEditedResponseModel {
     public static String getRecipeResponseText(ResponseDataType type) {
         return switch (type) {
             case EDIT -> "Recipe has been edited successfully.";

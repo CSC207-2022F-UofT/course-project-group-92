@@ -1,7 +1,7 @@
 /*
 AccountPresenter class to present the appropriate information from the user creation process
  */
-package recipe.foodbar.controller.user;
+package recipe.foodbar.presenter;
 
 import recipe.foodbar.usecase.user.port.UserCreatorOutputBoundary;
 

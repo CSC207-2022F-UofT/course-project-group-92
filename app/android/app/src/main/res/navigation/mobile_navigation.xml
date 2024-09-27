@@ -16,7 +16,7 @@
         <action
             android:id="@+id/action_navigation_home_to_authActivity2"
             app:destination="@id/authActivity2"
-            app:popUpTo="@id/authActivity2" />
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -38,7 +38,7 @@
         <action
             android:id="@+id/action_createRecipeFragment_to_navigation_home"
             app:destination="@id/navigation_home"
-            app:popUpTo="@id/navigation_home" />
+            app:popUpToInclusive="false" />
     </fragment>
     <activity
         android:id="@+id/authActivity2"

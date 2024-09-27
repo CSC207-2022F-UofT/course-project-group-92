@@ -3,7 +3,7 @@ Interface for the usecase interactor
  */
 package recipe.foodbar.usecase.user.port;
 
-import recipe.foodbar.usecase.user.UserInputData;
+import recipe.foodbar.usecase.user.ds.UserInputData;
 
 public interface UserCreatorInputBoundary {
 

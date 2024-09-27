@@ -1,4 +1,4 @@
-package recipe.foodbar.usecase.user;
+package recipe.foodbar.usecase.user.ds;
 
 /*
 A class to return the correct error methods from the given information

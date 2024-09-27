@@ -1,6 +1,7 @@
 package recipe.foodbar.usecase.recipe.manager.edit;
 
-import recipe.foodbar.repository.mongoDB.model.RecipeModel;
+import recipe.foodbar.interfaces.Editor;
+import recipe.foodbar.usecase.recipe.ds.RecipeRequestModel;
 
 /**
  * An input boundary for editing recipes.
@@ -12,13 +13,15 @@ public interface IRecipeEditor extends Editor {
      *
      * @param rm The request to edit.
      */
-    void editPortionSize(RecipeModel rm);
+    void editPortionSize(RecipeRequestModel rm);
 
-    void editTitle(RecipeModel rm);
+    void editTitle(RecipeRequestModel rm);
 
-    void editCuisine(RecipeModel rm);
+    void editCuisine(RecipeRequestModel rm);
 
-    void editDietaryRestrictions(RecipeModel rm);
+    void editDietaryRestrictions(RecipeRequestModel rm);
 
-    boolean editIngredients(RecipeModel rm);
+    boolean editIngredients(RecipeRequestModel rm);
+
+    boolean editInstructions(RecipeRequestModel rm);
 }

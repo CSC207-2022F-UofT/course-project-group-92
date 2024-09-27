@@ -1,7 +1,7 @@
 /*
 Class for the input data passed through to the usecase interactor of usercreation
  */
-package recipe.foodbar.usecase.user;
+package recipe.foodbar.usecase.user.ds;
 
 import lombok.NoArgsConstructor;
 
